@@ -87,6 +87,10 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
+        public int maxHealth = 100;
+        public int currentHealth;
+
+        public HealthBar healthBar;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -147,7 +151,9 @@ namespace StarterAssets
 #endif
 
             AssignAnimationIDs();
-
+            // Health
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
@@ -160,6 +166,18 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            if(Input.GetKeyDown(KeyCode.O))
+            {
+                TakeDamage(20);
+            }
+        }
+
+        void TakeDamage(int damage)
+        {
+            currentHealth -= damage;
+
+            healthBar.SetHealth(currentHealth);
         }
 
         private void LateUpdate()

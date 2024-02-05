@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143e9670ad60b0e4cb2bd0861d3adae9, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
+  images: {fileID: 11400000, guid: 925342bc611e5464081f87072563d023, type: 2}
   description: {fileID: 11400000, guid: 24200bfa1aebcd24faa4cd55f049fc24, type: 2}
   Id: 5
   uiDisplay: {fileID: 21300000, guid: 172774604c1bee84185a69041576525b, type: 3}
@@ -19,5 +20,5 @@ MonoBehaviour:
   buffs:
   - attribute: 0
     value: 0
-    min: 1
-    max: 7
+    min: 0
+    max: 0

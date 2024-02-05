@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e9dcdaf9be4674fa61b1df5afaf554, type: 3}
   m_Name: PotionDescription
   m_EditorClassIdentifier: 
-  textContent: '03 MACACOOOO
-
-'
+  textContent: "Descri\xE7\xE3o po\xE7\xE3o.\n"

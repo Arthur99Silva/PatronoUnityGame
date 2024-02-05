@@ -8,6 +8,7 @@ using UnityEngine.Events;
 
 public abstract class UserInterface : MonoBehaviour
 {
+    public ItemImagePanel imagePanel; // Referência para o painel de imagem do item
     public ItemDescriptionPanel descriptionPanel; // Referência para o painel de descrição
     public Player player;
     public InventoryObject inventory;
@@ -132,42 +133,69 @@ public abstract class UserInterface : MonoBehaviour
     }
 
     public void OnItemClick(GameObject obj)
-{
-    if (itemsDisplayed.ContainsKey(obj))
     {
-        InventorySlot clickedSlot = itemsDisplayed[obj];
-        ItemObject itemObject = inventory.database.GetItem[clickedSlot.item.Id];
+        if (itemsDisplayed.ContainsKey(obj))
+        {
+            InventorySlot clickedSlot = itemsDisplayed[obj];
+            ItemObject itemObject = inventory.database.GetItem[clickedSlot.item.Id];
 
-        if (descriptionPanel != null)
-        {
-            // Atualiza a descrição no painel de descrição
-            descriptionPanel.UpdateDescription(itemObject.Id);
-        }
-        else
-        {
-            Debug.LogWarning("Description panel is not assigned.");
+            Debug.Log("Clicou no item com ID: " + itemObject.Id);
+
+            if (descriptionPanel != null)
+            {
+                // Atualiza a descrição no painel de descrição
+                descriptionPanel.UpdateDescription(itemObject.Id);
+                Debug.Log("Descrição atualizada no painel de descrição.");
+            }
+            else
+            {
+                Debug.LogWarning("Description panel is not assigned.");
+            }
+
+            if (imagePanel != null)
+            {
+                Debug.Log("Painel de imagem está atribuído.");
+                // Atualiza a imagem no painel de imagem
+                imagePanel.UpdateImage(itemObject.Id);
+                Debug.Log("Imagem atualizada no painel de imagem.");
+            }
+            else
+            {
+                Debug.LogWarning("Image panel is not assigned.");
+            }
         }
     }
-}
 
-// Método para encontrar o objeto de descrição correto com base no ID do item clicado
-private Descriptions FindDescriptionByID(int itemId)
-{
-    GroundItem[] groundItems = FindObjectsOfType<GroundItem>();
-
-    foreach (GroundItem groundItem in groundItems)
+    // Método para encontrar o objeto de descrição correto com base no ID do item clicado
+    private Descriptions FindDescriptionByID(int itemId)
     {
-        if (groundItem.item.Id == itemId)
+        GroundItem[] groundItems = FindObjectsOfType<GroundItem>();
+
+        foreach (GroundItem groundItem in groundItems)
         {
-            return groundItem.descriptions;
+            if (groundItem.item.Id == itemId)
+            {
+                return groundItem.descriptions;
+            }
         }
+
+        return null;
     }
 
-    return null;
-}
+    private Images FindImageByID(int itemId)
+    {
+        GroundItem[] groundItems = FindObjectsOfType<GroundItem>();
 
+        foreach (GroundItem groundItem in groundItems)
+        {
+            if (groundItem.item.Id == itemId)
+            {
+                return groundItem.images;
+            }
+        }
 
-
+        return null;
+    }
 }
 
 public class MouseItem

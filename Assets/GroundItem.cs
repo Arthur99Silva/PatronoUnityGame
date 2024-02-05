@@ -6,4 +6,5 @@ public class GroundItem : MonoBehaviour
 {
     public ItemObject item;
     public Descriptions descriptions;
+    public Images images;
 }

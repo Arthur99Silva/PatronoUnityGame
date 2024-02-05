@@ -7,11 +7,9 @@ using UnityEngine.UI;
 
 public class DynamicInterface : UserInterface
 {
-    
     public GameObject inventoryPrefab;
     public int X_START;
     public int Y_START;
-
     public int X_SPACE_BETWEEN_ITEM;
     public int NUMBER_OF_COLUMM;
     public int Y_SPACE_BETWEEN_ITEM;
@@ -31,8 +29,7 @@ public class DynamicInterface : UserInterface
             AddEvent(obj, EventTriggerType.Drag, delegate {OnDrag(obj); });
 
             AddEvent(obj, EventTriggerType.PointerClick, delegate {OnItemClick(obj); });
-
-
+            
             itemsDisplayed.Add(obj,inventory.Container.Items[i]);
         }
     }
