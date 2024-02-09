@@ -4,6 +4,7 @@ public class OpenInventory : MonoBehaviour
 {
     public GameObject InventoryMenu;
     public GameObject EquipamentMenu;
+    public GameObject PatronoMenu;
     public Camera playerCamera; // Referência à câmera do jogador
     private bool isPaused = false;
 
@@ -28,6 +29,32 @@ public class OpenInventory : MonoBehaviour
             InventoryMenu.SetActive(isPaused);
             EquipamentMenu.SetActive(isPaused);
 
+            // Pausa ou retoma o jogo alterando a escala de tempo
+            Time.timeScale = isPaused ? 0f : 1f;
+
+            // Pausa ou retoma o movimento da câmera
+            PauseCameraMovement(isPaused);
+
+            // Habilita ou desabilita a captura do cursor
+            if (isPaused)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            // Inverte o estado do pause
+            isPaused = !isPaused;
+
+            // Ativa/desativa o menu de inventário conforme necessário
+            PatronoMenu.SetActive(isPaused);
+        
             // Pausa ou retoma o jogo alterando a escala de tempo
             Time.timeScale = isPaused ? 0f : 1f;
 

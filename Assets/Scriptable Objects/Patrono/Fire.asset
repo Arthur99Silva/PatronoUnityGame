@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3e9dcdaf9be4674fa61b1df5afaf554, type: 3}
-  m_Name: SwordDescription
+  m_Script: {fileID: 11500000, guid: 45394435468fcac488d53862a09bf276, type: 3}
+  m_Name: Fire
   m_EditorClassIdentifier: 
-  textContent: "Descri\xE7\xE3o espada...!"
+  description: {fileID: 0}
+  Id: 1
+  uiDisplay: {fileID: 0}
+  ptype: 0
+  stats: []

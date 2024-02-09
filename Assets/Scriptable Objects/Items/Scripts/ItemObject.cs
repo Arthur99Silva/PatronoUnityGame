@@ -19,11 +19,12 @@ public enum Attributes
 }
 public abstract class ItemObject : ScriptableObject
 {
-    public Images images;
-    public Descriptions description;
+    public Descriptions description; // Adicione este campo para armazenar a descrição
     public int Id;
     public Sprite uiDisplay;
     public ItemType type;
+    [TextArea(15,20)]
+    //public string description;
     public ItemBuff[] buffs;
 
     public Item CreateItem()
@@ -38,16 +39,20 @@ public class Item
 {
     public string Name;
     public int Id;
+    //public string Description;
     public ItemBuff[] buffs;
     public Item()
     {
         Name = "";
         Id = -1;
+        //Description = "";
+        
     }
     public Item(ItemObject item)
     {
         Name = item.name;
         Id = item.Id;
+        //Description = item.description;
         buffs = new ItemBuff[item.buffs.Length];
         for (int i = 0; i < buffs.Length; i++)
         {
@@ -60,7 +65,7 @@ public class Item
 }
 
 [System.Serializable]
-public class ItemBuff : IModifier
+public class ItemBuff
 {
     public Attributes attribute;
     public int value;
@@ -72,18 +77,8 @@ public class ItemBuff : IModifier
         max = _max;
         GenerateValue();
     }
-
-    public void AddValue(ref int baseValue)
-    {
-        baseValue += value;
-    }
-
     public void GenerateValue()
     {
         value = UnityEngine.Random.Range(min, max);
     }
-}
-
-public interface IModifier
-{
 }

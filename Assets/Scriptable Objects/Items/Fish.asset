@@ -12,16 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0d0de070e2c184bb134ffddaab58c0, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
-  images: {fileID: 11400000, guid: 00e875547a87dcb4cb00b589fcd20735, type: 2}
   description: {fileID: 11400000, guid: 24200bfa1aebcd24faa4cd55f049fc24, type: 2}
   Id: 1
   uiDisplay: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
   type: 1
   buffs:
-  - attribute: 0
-    value: 0
-    min: 1
-    max: 12
   - attribute: 0
     value: 0
     min: 1

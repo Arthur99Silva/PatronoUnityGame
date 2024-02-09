@@ -8,7 +8,6 @@ using UnityEngine.Events;
 
 public abstract class UserInterface : MonoBehaviour
 {
-    public ItemImagePanel imagePanel; // Referência para o painel de imagem do item
     public ItemDescriptionPanel descriptionPanel; // Referência para o painel de descrição
     public Player player;
     public InventoryObject inventory;
@@ -139,29 +138,14 @@ public abstract class UserInterface : MonoBehaviour
             InventorySlot clickedSlot = itemsDisplayed[obj];
             ItemObject itemObject = inventory.database.GetItem[clickedSlot.item.Id];
 
-            Debug.Log("Clicou no item com ID: " + itemObject.Id);
-
             if (descriptionPanel != null)
             {
                 // Atualiza a descrição no painel de descrição
                 descriptionPanel.UpdateDescription(itemObject.Id);
-                Debug.Log("Descrição atualizada no painel de descrição.");
             }
             else
             {
                 Debug.LogWarning("Description panel is not assigned.");
-            }
-
-            if (imagePanel != null)
-            {
-                Debug.Log("Painel de imagem está atribuído.");
-                // Atualiza a imagem no painel de imagem
-                imagePanel.UpdateImage(itemObject.Id);
-                Debug.Log("Imagem atualizada no painel de imagem.");
-            }
-            else
-            {
-                Debug.LogWarning("Image panel is not assigned.");
             }
         }
     }
@@ -182,20 +166,8 @@ public abstract class UserInterface : MonoBehaviour
         return null;
     }
 
-    private Images FindImageByID(int itemId)
-    {
-        GroundItem[] groundItems = FindObjectsOfType<GroundItem>();
 
-        foreach (GroundItem groundItem in groundItems)
-        {
-            if (groundItem.item.Id == itemId)
-            {
-                return groundItem.images;
-            }
-        }
 
-        return null;
-    }
 }
 
 public class MouseItem
