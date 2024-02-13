@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353fbb8b597e60642a6287f3610bc2ad, type: 3}
   m_Name: Light
   m_EditorClassIdentifier: 
-  description: {fileID: 0}
-  Id: 2
-  uiDisplay: {fileID: 0}
+  description: {fileID: 11400000, guid: 5774cfedad55ba646acb0b3d1966837d, type: 2}
+  idP: 2
+  uiDisplay: {fileID: 21300000, guid: 3e4fcc84a0ac95b429c56452575f6021, type: 3}
   ptype: 3
   stats: []

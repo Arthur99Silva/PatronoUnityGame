@@ -14,15 +14,14 @@ public enum PatronoType
 public enum Stats
 {
     Agillity,
-    Intellect,
-    Staminna,
+    Elemental,
     Strenght
 
 }
 
 public abstract class PatronoObject : ScriptableObject
 {
-    //public Images images;
+    public string objectName; // Adiciona uma propriedade para armazenar o nome do objeto
     public Descriptions description;
     public int idP;
     public Sprite uiDisplay;
@@ -32,6 +31,7 @@ public abstract class PatronoObject : ScriptableObject
     public Patrono CreatePatrono()
     {
         Patrono newPatrono = new Patrono(this);
+        newPatrono.Name = objectName;
         return newPatrono;
     }
 }

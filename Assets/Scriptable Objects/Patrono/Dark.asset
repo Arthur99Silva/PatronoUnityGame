@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c52e45076fcaa944ba582a0210b5356, type: 3}
   m_Name: Dark
   m_EditorClassIdentifier: 
-  description: {fileID: 0}
-  Id: 0
-  uiDisplay: {fileID: 0}
-  ptype: 0
+  objectName: DarkPatrono
+  description: {fileID: 11400000, guid: 5774cfedad55ba646acb0b3d1966837d, type: 2}
+  idP: 0
+  uiDisplay: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
+  ptype: 2
   stats: []

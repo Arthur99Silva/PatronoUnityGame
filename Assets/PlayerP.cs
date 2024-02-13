@@ -12,7 +12,7 @@ public class PlayerP : MonoBehaviour
         var patrono = other.GetComponent<GroundPatrono>();
         if (patrono)
         {
-            inventoryP.AddPatronoPower(new Patrono(patrono.patrono), 1);
+            inventoryP.AddPatronoPower(new Patrono(patrono.patrono));
             Destroy(other.gameObject);
         }
     }

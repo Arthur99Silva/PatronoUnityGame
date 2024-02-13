@@ -28,12 +28,13 @@ public class Pinterface : PatronoInterface
             {
                 Debug.Log("Antes de adicionar eventos. Objeto é nulo? " + (obj == null));
                 AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
-                // Adicione os outros eventos aqui
+                //Adicione os outros eventos aqui
                 AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
                 AddEvent(obj, EventTriggerType.BeginDrag, delegate { OnDragStart(obj); });
                 AddEvent(obj, EventTriggerType.EndDrag, delegate { OnDragEnd(obj); });
                 AddEvent(obj, EventTriggerType.Drag, delegate { OnDrag(obj); });
-                Debug.Log("Após adicionar eventos");
+                
+                AddEvent(obj, EventTriggerType.PointerClick, delegate {OnItemClick(obj); });
             }
 
 

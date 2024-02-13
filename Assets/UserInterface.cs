@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public abstract class UserInterface : MonoBehaviour
 {
     public ItemDescriptionPanel descriptionPanel; // Referência para o painel de descrição
+    public GameObject photo;
     public Player player;
     public InventoryObject inventory;
     public Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
@@ -136,7 +137,9 @@ public abstract class UserInterface : MonoBehaviour
         if (itemsDisplayed.ContainsKey(obj))
         {
             InventorySlot clickedSlot = itemsDisplayed[obj];
+            Image imageComponent = photo.GetComponent<Image>();
             ItemObject itemObject = inventory.database.GetItem[clickedSlot.item.Id];
+            imageComponent.sprite = inventory.database.GetItem[clickedSlot.item.Id].uiDisplay;
 
             if (descriptionPanel != null)
             {

@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13fd2ac70e8152e41aa49b11e57c1ba3, type: 3}
   m_Name: DatabasePatrono
   m_EditorClassIdentifier: 
-  Patronos: []
+  Patronos:
+  - {fileID: 11400000, guid: 75d8196fab2a9e4418004f814e93b19b, type: 2}
+  - {fileID: 11400000, guid: 4bbacd384a3930e408cb1e367070af3b, type: 2}
+  - {fileID: 11400000, guid: a83295dee6ac5f64082c0583ec3e4ba6, type: 2}
+  - {fileID: 11400000, guid: 66045ce63a865d445bca22418b80064d, type: 2}

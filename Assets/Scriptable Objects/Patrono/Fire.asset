@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45394435468fcac488d53862a09bf276, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  description: {fileID: 0}
-  Id: 1
-  uiDisplay: {fileID: 0}
+  description: {fileID: 11400000, guid: 5774cfedad55ba646acb0b3d1966837d, type: 2}
+  idP: 1
+  uiDisplay: {fileID: 21300000, guid: 0e123cfdc54a3ca4684816a34167a566, type: 3}
   ptype: 0
   stats: []

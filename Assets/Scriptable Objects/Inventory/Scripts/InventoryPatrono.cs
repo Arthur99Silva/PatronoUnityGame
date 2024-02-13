@@ -16,11 +16,11 @@ public class InventoryPatrono : ScriptableObject
 
     public InventoryP ContainerP;
 
-    public void AddPatronoPower(Patrono _patrono, int _amount)
+    public void AddPatronoPower(Patrono _patrono)
     {
         if(_patrono.stats.Length > 0)
         {
-            SetEmptySlotP(_patrono, _amount);
+            SetEmptySlotP(_patrono);
             return;
         }
 
@@ -28,20 +28,20 @@ public class InventoryPatrono : ScriptableObject
         {
             if (ContainerP.Patronos[i].IDP == _patrono.idP)
             {
-                ContainerP.Patronos[i].AddAmount(_amount);
+                //ContainerP.Patronos[i].AddAmount(_amount);
                 return;
             }
         }
-        SetEmptySlotP(_patrono, _amount);
+        SetEmptySlotP(_patrono);
     }
 
-    public PatronoSlot SetEmptySlotP(Patrono _patrono, int _amount)
+    public PatronoSlot SetEmptySlotP(Patrono _patrono)
     {
         for (int i = 0; i < ContainerP.Patronos.Length; i++)
         {
             if(ContainerP.Patronos[i].IDP <= -1)
             {
-                ContainerP.Patronos[i].UpdateSlotP(_patrono.idP, _patrono, _amount);
+                ContainerP.Patronos[i].UpdateSlotP(_patrono.idP, _patrono);
                 return ContainerP.Patronos[i];
             }
         }
@@ -51,9 +51,9 @@ public class InventoryPatrono : ScriptableObject
 
     public void MovePatrono(PatronoSlot patrono1, PatronoSlot patrono2)
     {
-        PatronoSlot temp = new PatronoSlot(patrono2.IDP, patrono2.patrono, patrono2.amount);
-        patrono2.UpdateSlotP(patrono1.IDP, patrono1.patrono, patrono1.amount);
-        patrono1.UpdateSlotP(temp.IDP, temp.patrono, temp.amount);
+        PatronoSlot temp = new PatronoSlot(patrono2.IDP, patrono2.patrono);
+        patrono2.UpdateSlotP(patrono1.IDP, patrono1.patrono);
+        patrono1.UpdateSlotP(temp.IDP, temp.patrono);
     }
 
     public void RemovePatrono(PatronoSlot _patronoSlot)
@@ -61,7 +61,7 @@ public class InventoryPatrono : ScriptableObject
     for (int i = 0; i < ContainerP.Patronos.Length; i++)
     {
         if(ContainerP.Patronos[i].IDP == _patronoSlot.IDP){
-            ContainerP.Patronos[i].UpdateSlotP(-1, null, 0);
+            ContainerP.Patronos[i].UpdateSlotP(-1, null);
         }
     }
 }
@@ -114,12 +114,12 @@ public void Save()
 [System.Serializable]
 public class InventoryP
 {
-    public PatronoSlot[] Patronos = new PatronoSlot[50];
+    public PatronoSlot[] Patronos = new PatronoSlot[48];
     public void Clear()
     {
         for (int i = 0; i < Patronos.Length; i++)
         {
-            Patronos[i].UpdateSlotP(-1, new Patrono(), 0);
+            Patronos[i].UpdateSlotP(-1, new Patrono());
         }
     }
 }
@@ -131,29 +131,27 @@ public class PatronoSlot
     public PatronoInterface parent;
     public int IDP = -1;
     public Patrono patrono;
-    public int amount;
+    //public int amount;
     public PatronoSlot()
     {
         IDP = - 1;
         patrono = null;
-        amount = 0;
     }
-    public PatronoSlot(int _id, Patrono _patrono, int _amount)
+    public PatronoSlot(int _id, Patrono _patrono)
     {
         IDP = _id;
         patrono = _patrono;
-        amount = _amount;
     }
 
-public void UpdateSlotP(int _id, Patrono _patrono, int _amount)
+public void UpdateSlotP(int _id, Patrono _patrono)
     {
         IDP = _id;
         patrono = _patrono;
-        amount = _amount;
+
     }
     public void AddAmount(int value)
     {
-        amount += value;
+        //amount += value;
     }
     public bool CanPlaceInSlotP(PatronoObject _patrono)
     {

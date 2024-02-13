@@ -111,7 +111,7 @@ public void Save()
 [System.Serializable]
 public class Inventory
 {
-    public InventorySlot[] Items = new InventorySlot[50];
+    public InventorySlot[] Items = new InventorySlot[48];
     public void Clear()
     {
         for (int i = 0; i < Items.Length; i++)

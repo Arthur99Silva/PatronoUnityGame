@@ -9,7 +9,8 @@ using UnityEngine.Events;
 public abstract class PatronoInterface : MonoBehaviour
 {
     public MousePatrono mousePatrono = new MousePatrono();
-    //public GameObject PatronoPrefab;
+    public PatronoDescriptionPanel descriptionPanel;
+    public GameObject photo;
     public InventoryPatrono inventoryP;
     public PlayerP player;
 
@@ -40,7 +41,7 @@ public abstract class PatronoInterface : MonoBehaviour
             {
                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventoryP.database.GetItem[_slot.Value.patrono.idP].uiDisplay;
                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
-                _slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = _slot.Value.amount == 1 ? "" : _slot.Value.amount.ToString("n0");
+                //_slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = _slot.Value.amount == 1 ? "" : _slot.Value.amount.ToString("n0");
             }
             else
             {
@@ -53,7 +54,7 @@ public abstract class PatronoInterface : MonoBehaviour
 
     public abstract void CreateSlotsP();
 
-    public void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
+    protected void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         if (obj != null)
         {
@@ -140,6 +141,28 @@ public abstract class PatronoInterface : MonoBehaviour
         if (player.mousePatrono.obj != null)
         {
             player.mousePatrono.obj.GetComponent<RectTransform>().position = Input.mousePosition;
+        }
+    }
+
+
+public void OnItemClick(GameObject obj)
+    {
+        if (patronosDisplayed.ContainsKey(obj))
+        {
+            PatronoSlot clickedSlot = patronosDisplayed[obj];
+            Image imageComponent = photo.GetComponent<Image>();
+            PatronoObject patronoObject = inventoryP.database.GetItem[clickedSlot.patrono.idP];
+            imageComponent.sprite = inventoryP.database.GetItem[clickedSlot.patrono.idP].uiDisplay;
+
+            if (descriptionPanel != null)
+            {
+                // Atualiza a descrição no painel de descrição
+                descriptionPanel.UpdateDescription(patronoObject.idP);
+            }
+            else
+            {
+                Debug.LogWarning("Description panel is not assigned.");
+            }
         }
     }
 }
