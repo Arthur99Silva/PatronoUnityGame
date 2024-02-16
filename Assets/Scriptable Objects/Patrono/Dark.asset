@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: DarkPatrono
   description: {fileID: 11400000, guid: 5774cfedad55ba646acb0b3d1966837d, type: 2}
+  namePatrono: {fileID: 11400000, guid: b08cc56471eaecc4e99209fd52c6938d, type: 2}
   idP: 0
   uiDisplay: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
   ptype: 2

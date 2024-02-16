@@ -23,6 +23,7 @@ public abstract class PatronoObject : ScriptableObject
 {
     public string objectName; // Adiciona uma propriedade para armazenar o nome do objeto
     public Descriptions description;
+    public NamePatrono namePatrono;
     public int idP;
     public Sprite uiDisplay;
     public PatronoType ptype;
