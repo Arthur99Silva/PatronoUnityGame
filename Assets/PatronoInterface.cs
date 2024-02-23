@@ -47,7 +47,7 @@ public abstract class PatronoInterface : MonoBehaviour
             {
                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
-                _slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
+                //_slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
             }
         }
     }

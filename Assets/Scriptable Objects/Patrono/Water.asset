@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ca2f6267e04e94bb171ae9954de330, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
+  objectName: WaterPatrono
   description: {fileID: 11400000, guid: 5774cfedad55ba646acb0b3d1966837d, type: 2}
+  namePatrono: {fileID: 11400000, guid: 920879b4dc6e55d459fbb6123ae1cc11, type: 2}
   idP: 3
   uiDisplay: {fileID: 21300000, guid: ae496f5dad56ea645b72d374a0376368, type: 3}
   ptype: 1
