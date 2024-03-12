@@ -229,6 +229,8 @@ namespace StarterAssets
 
         private void CameraRotation()
         {
+            //if(!PauseMenu.isPaused)
+            //{
             // if there is an input and camera position is not fixed
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {
@@ -246,6 +248,7 @@ namespace StarterAssets
             // Cinemachine will follow this target
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
+            //}
         }
 
         private void Move()
